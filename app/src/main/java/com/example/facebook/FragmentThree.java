@@ -16,6 +16,7 @@ public class FragmentThree extends Fragment {
 
     MyDataBase mydatabase;
     TextView viewdetails;
+
     public static FragmentThree newInstance(){
         FragmentThree fragmentThree = new FragmentThree();
         return fragmentThree;
@@ -38,6 +39,7 @@ public class FragmentThree extends Fragment {
     }
 
     public void viewAll(){
+
         Cursor data = mydatabase.getAll();
 
         if((data.getCount())==0){
@@ -60,6 +62,7 @@ public class FragmentThree extends Fragment {
 
 
     public void showMessage(String title,String message){
+        
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setCancelable(true);
         builder.setTitle(title);
