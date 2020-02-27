@@ -65,7 +65,7 @@ public class MyData extends SQLiteOpenHelper {
             return true;
     }
 
-    public Cursor getAll(){
+    public Cursor getAllDetails(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("select * from "+TABLE_NAME,null);
         return  data;
