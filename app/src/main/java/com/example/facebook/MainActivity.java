@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayout;
 public class MainActivity extends AppCompatActivity {
 
        ViewPager viewPager;
-
+//declare
        MyFragmentAdapter adapter;
        TabLayout tabLayout;
 
