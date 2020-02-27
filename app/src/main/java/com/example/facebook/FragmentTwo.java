@@ -20,7 +20,7 @@ import static com.example.myfb.database.Mydatabase.DB_VERSION;
 
 public class FragmentTwo extends Fragment {
     MyData mydb;
-    SearchView searchView;
+    SearchView search;
     TextView name,age,mark;
     String result;
     public static FragmentTwo newInstance(){
