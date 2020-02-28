@@ -5,6 +5,8 @@ package com.example.facebook;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.widget.Button;
+        import android.widget.EditText;
 
         import androidx.annotation.NonNull;
         import androidx.annotation.Nullable;
@@ -17,11 +19,22 @@ package com.example.facebook;
 
 public class FragmentOne extends Fragment {
 
-    MyData dataBaseManager;
+    MyData dbManager;
+    EditText stu_name;
+    EditText stu_age;
+    EditText stu_mark;
 
+    String s_name;
+    String s_age;
+    String s_marks;
+    Button insert;
     public static FragmentOne newInstance(){
-        FragmentOne fragmentOne = new FragmentOne();
+        FragmentOne fragmentOne=new FragmentOne();
         return fragmentOne;
+
+
+
+
     }
 
     @Nullable
@@ -29,26 +42,35 @@ public class FragmentOne extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_one, container, false);
 
+
+
     }
-
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        dataBaseManager = new MyData(getContext(),
-                DB_NAME,
-                null,
-                DB_VERSION);
+        dbManager = new MyData(getContext(),DB_NAME,null,DB_VERSION);
+
+        stu_name = (EditText) view.findViewById(R.id.nameinsert);
+        stu_age = (EditText) view.findViewById(R.id.ageinsert);
+        stu_mark = (EditText) view.findViewById(R.id.markinsert);
+        insert = view.findViewById(R.id.insertbtn);
+
+        insert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                s_name = stu_name.getText().toString();
+                s_age = stu_age.getText().toString();
+                s_marks = stu_mark.getText().toString();
+
+                boolean inserted = dbManager.insertData("name: "+s_name,"age: "+s_age,"mark: "+s_marks);
+            }
+        });
+
 
 
 
     }
-    private long insertStudent(String name,int age,int marks){
-        dataBaseManager.insertStudent("Dulshan", 23, 45);
-        return 0;
-    }
+
+
 }
-
-
-
