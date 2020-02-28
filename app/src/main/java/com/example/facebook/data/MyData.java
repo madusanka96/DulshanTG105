@@ -18,9 +18,9 @@ public class MyData extends SQLiteOpenHelper {
     public static final String DB_NAME = "myDB.db";
     public static final int DB_VERSION=1;
     public static final String TABLE_NAME="student_details";
-    public static final String COLUMN_1="stu_name";
-    public static final String COLUMN_2="stu_age";
-    public static final String COLUMN_3="stu_marks";
+    public static final String COLUMN_1="name";
+    public static final String COLUMN_2="age";
+    public static final String COLUMN_3="marks";
 
 
 

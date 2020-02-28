@@ -51,10 +51,10 @@ public class FragmentTwo extends Fragment {
         final Cursor result = mydb.getAllDetails();
         ArrayList<String> list = new ArrayList<>();
         while (result.moveToNext()) {
-            list.add(result.getString(0));
+            list.add(result.getString(1));
         }
         ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, list);
-        listView.setAdapter(adapter);
+        searchView.setAdapter(adapter);
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,10 +63,10 @@ public class FragmentTwo extends Fragment {
                 name = searchView.getText().toString();
                 ArrayList<String> list = new ArrayList<>();
                 while (result.moveToNext()) {
-                    if (result.getString(0).equals(name)) {
-                        list.add("Name = " + result.getString(0));
-                        list.add("Age = " + result.getString(1));
-                        list.add("Mark = " + result.getString(2));
+                    if (result.getString(1).equals(name)) {
+                        list.add("Name = " + result.getString(1));
+                        list.add("Age = " + result.getString(2));
+                        list.add("Mark = " + result.getString(3));
 
                     }
 

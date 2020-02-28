@@ -51,9 +51,9 @@ public class FragmentOne extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         dbManager = new MyData(getContext(),MyData.DB_NAME,null,MyData.DB_VERSION);
 
-        stu_name = (EditText) view.findViewById(R.id.nameinsert);
-        stu_age = (EditText) view.findViewById(R.id.ageinsert);
-        stu_mark = (EditText) view.findViewById(R.id.markinsert);
+        stu_name = view.findViewById(R.id.nameinsert);
+        stu_age = view.findViewById(R.id.ageinsert);
+        stu_mark = view.findViewById(R.id.markinsert);
         insert = view.findViewById(R.id.insertbtn);
 
         insert.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +63,7 @@ public class FragmentOne extends Fragment {
                 s_age = stu_age.getText().toString();
                 s_marks = stu_mark.getText().toString();
 
-                boolean inserted = dbManager.insertData("name: "+s_name,"age: "+s_age,"mark: "+s_marks);
+                boolean inserted = dbManager.insertData(s_name, s_age, s_marks);
             }
         });
 

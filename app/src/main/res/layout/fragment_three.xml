@@ -4,10 +4,11 @@
     android:layout_height="match_parent"
     android:background="#124D45">
 
-    <TextView
+    <ListView
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         android:textColor="@android:color/holo_blue_dark"
         />
 
