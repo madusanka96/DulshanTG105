@@ -54,7 +54,7 @@ public class FragmentTwo extends Fragment {
             list.add(result.getString(0));
         }
         ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, list);
-        searchView.setAdapter(adapter);
+        listView.setAdapter(adapter);
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override

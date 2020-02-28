@@ -49,7 +49,7 @@ public class FragmentOne extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        dbManager = new MyData(getContext(),DB_NAME,null,DB_VERSION);
+        dbManager = new MyData(getContext(),MyData.DB_NAME,null,MyData.DB_VERSION);
 
         stu_name = (EditText) view.findViewById(R.id.nameinsert);
         stu_age = (EditText) view.findViewById(R.id.ageinsert);
