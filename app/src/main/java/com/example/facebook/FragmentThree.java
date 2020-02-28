@@ -12,9 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.facebook.data.MyData;
+
+import static com.example.facebook.data.MyData.DB_NAME;
+import static com.example.facebook.data.MyData.DB_VERSION;
+
 public class FragmentThree extends Fragment {
 
-    MyDataBase mydatabase;
+    MyData mydatabase;
     TextView viewdetails;
 
     public static FragmentThree newInstance(){
@@ -31,7 +36,7 @@ public class FragmentThree extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mydatabase = new MyDataBase(getContext(), DB_NAME, null, DB_VERSION);
+        mydatabase = new MyData(getContext(), DB_NAME, null, DB_VERSION);
         viewdetails = view.findViewById(R.id.view);
 
 
@@ -40,7 +45,7 @@ public class FragmentThree extends Fragment {
 
     public void viewAll(){
 
-        Cursor data = mydatabase.getAll();
+        Cursor data = mydatabase.getAllDetails();
 
         if((data.getCount())==0){
             showMessage("Invalid","Not Find Details");
@@ -62,7 +67,7 @@ public class FragmentThree extends Fragment {
 
 
     public void showMessage(String title,String message){
-        
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setCancelable(true);
         builder.setTitle(title);
